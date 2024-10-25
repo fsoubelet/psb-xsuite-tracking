@@ -26,7 +26,7 @@ rates = twiss.get_ibs_growth_rates(
     sigma_delta=3.7e-3,  # madx.beam.sige / (madx.beam.beta ** 2)
     bunch_length=p["sigma_z"],
 )
-print(f"Growth rates (thick line) in [1/s]: {rates}")
+print(f"Growth rates (thick line) in [s^-1]: {rates}")
 
 
 # We load the exported thin Line and Twiss
