@@ -95,11 +95,6 @@ madx.exit()
 LOGGER.debug("Configuring the bend model to full")
 line.configure_bend_model(core="full", edge="full")
 
-# Get a twiss, export to json
-LOGGER.info("Getting twiss and exporting to json")
-twiss = line.twiss(method="4d")
-line.to_json("psb_line_thick.json")
-
 # Now to configure for longitudinal motion (single RF, no acceleration)
 LOGGER.info("Configuring Single RF for longitudinal motion")
 line.element_refs["br.c02"].voltage = 0.008 * 1e6  # voltage 8kV
@@ -162,6 +157,5 @@ line.to_json("psb_line_thin.json")
 print("Ran MAD-X scripts at 'commands.madx'")
 print(f"SIRE-compatible TWISS at: '{location}'")
 print("Line versions saved to JSON:")
-print(" - Initial (thick) line from MAD-X: 'psb_line_thick.json'")
 print(" - Active RF (thick) line: 'psb_line_thick_activated_cavity.json'")
 print(" - Thin line: 'psb_line_thin.json')")
