@@ -68,6 +68,8 @@ def get_sire_twiss(line: xt.Line) -> tfs.TfsDataFrame:
     return result
 
 
+# ----- Loading and Configuring Lattice ----- #
+
 # This first parts gets the lattice directly through MAD-X from the
 # scripts in the psb folder (can be updated)
 LOGGER.info("Getting the lattice from MAD-X")
@@ -113,6 +115,8 @@ LOGGER.info("Getting SIRE-compatible twiss and exporting")
 siretwiss = get_sire_twiss(line)
 location = "for_sire.tfs"
 tfs.write(location, siretwiss)
+
+# ----- Preparing Thin Version ----- #
 
 # Potentially we can slice the line (not strictly needed, but makes tracking faster)
 # Deactivate painting bump, chicane and correction
